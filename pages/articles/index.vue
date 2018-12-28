@@ -1,15 +1,15 @@
 <template>
-  <div
-    class="card"
-    style="width: 18rem;"
-  >
+  <div>
     <div
       v-for="(article, index) in articles"
       :key="index"
-      className="card-body"
+      className="card"
+      style="width: 18rem;"
     >
-      <h5 class="card-title">{{ article.title }}</h5>
-      <p class="card-text">{{ article.body }}</p>
+      <div class="card-body">
+        <h5 class="card-title">{{ article.title }}</h5>
+        <p class="card-text">{{ article.body }}</p>
+      </div>
     </div>
   </div>
 </template>
