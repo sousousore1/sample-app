@@ -5,10 +5,11 @@
       :key="index"
       className="card"
     >
-      <div class="card-body">
-        <h5 class="card-title">{{ article.title }}</h5>
-        <p class="card-text">{{ article.body }}</p>
-      </div>
+      <nuxt-link :to="{ name: 'articles-id', params: { id: article.id } }">
+        <div class="card-body">
+          <h5 class="card-title">{{ article.title }}</h5>
+        </div>
+      </nuxt-link>
     </div>
   </div>
 </template>
