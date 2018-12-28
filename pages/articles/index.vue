@@ -4,7 +4,6 @@
       v-for="(article, index) in articles"
       :key="index"
       className="card"
-      style="width: 18rem;"
     >
       <div class="card-body">
         <h5 class="card-title">{{ article.title }}</h5>
