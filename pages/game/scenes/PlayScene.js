@@ -1,3 +1,4 @@
+import axios from 'axios'
 import desertJson from '~/assets/tilemaps/desert.json'
 import desertImage from '~/assets/tilemaps/tmw_desert_spacing.png'
 import playerImage from '~/assets/sprites/mushroom.png'
@@ -13,7 +14,7 @@ class TestScene extends Phaser.Scene {
     this.load.image('player', playerImage)
   }
 
-  create() {
+  async create() {
     const map = this.make.tilemap({ key: 'map' })
     const tileset = map.addTilesetImage('Desert')
     const layer = map.createStaticLayer(0, tileset, 0, 0)
@@ -23,6 +24,12 @@ class TestScene extends Phaser.Scene {
 
     this.cameras.main.setBounds(0, 0, map.withInPixels, map.heightInPixels)
     this.cameras.main.startFollow(this.player, false)
+
+    const { data } = await axios.get(`${process.env.apiUrl}/articles.json`)
+    this.articles = data
+    this.articles.forEach(article => {
+      console.log(article.title)
+    })
   }
 
   update(time, delta) {

@@ -9,7 +9,6 @@ body {
 }
 </style>
 <script>
-import axios from 'axios'
 import 'phaser'
 import TestScene from './scenes/PlayScene.js'
 
@@ -24,10 +23,5 @@ const config = {
 }
 new Phaser.Game(config)
 
-export default {
-  async asyncData({ params }) {
-    let { data } = await axios.get(`${process.env.apiUrl}/articles.json`)
-    return { articles: data }
-  }
-}
+export default {}
 </script>
